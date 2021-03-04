@@ -1,6 +1,6 @@
 ---
 title: "Simulation-based inference - confidence intervals"
-author: ""
+author: "Archie Ju"
 date: "March 3, 2021"
 output: html_document
 editor_options: 
@@ -11,6 +11,11 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE,
                       comment = "#>", highlight = TRUE,
                       fig.align = "center")
+```
+
+```{r}
+library (usethis)
+use_git_config (user.name = "Archie-ju", user.email = "botao.ju@duke.edu")
 ```
 
 ## Main ideas
@@ -189,7 +194,7 @@ Consider 20 1-bedroom apartments that were randomly selected on
 Craigslist Manhattan from apartments listed as "by owner".
 
 ```{r data_manhattan}
-manhattan <- read_csv("~/manhattan.csv")
+manhattan <- read_csv("~/R/Lecture Notes/Lecture-Notes-13/manhattan.csv")
 ```
 
 Consider 3-10 day survival of mice randomized to various
@@ -209,7 +214,7 @@ Suppose the following represents the population of ACT scores. There are only
 1000 individuals in our population.
 
 ```{r population_act_distribution}
-population <- tibble(act = rnorm(n = 1000, mean = 20.8, sd = 5.8))
+population <- tibble(act = rnorm(n = 1000, mean = 20.8, sd = 5.8)) # generating a normal distribution based on mean and sd.
 population %>% 
   ggplot(aes(x = act)) +
   geom_histogram(binwidth = 5, fill = "grey90", color = "blue") +
